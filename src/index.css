@@ -74,6 +74,13 @@ li {
   margin: 10px;
 }
 
+.avatarNav{
+  height: 50px;
+  border-radius: 25px;
+  margin: 0px 0px 0px 5px;
+  float: right;
+}
+
 .tweet {
   width: 100%;
   max-width: 590px;
@@ -91,7 +98,42 @@ li {
   flex-direction: column;
 }
 
-/* Hacky but less typing in the video */
+.name{
+  font-size: 30px;
+  float: right;
+  padding-top: 15px;
+  padding-left: 30px;
+  color: #585656;
+}
+
+/* .labelChoose{
+  display: block;
+  padding: 5px
+} */
+
+.formbtn{
+  margin: 5px 0 0 0;
+	padding: 10px;
+	font-weight: bold;
+	font-size: medium;
+	background-color: #1A355B;
+	color: #ffffff;
+	border: none ;
+	border-radius: 5px;
+  width: 200px;
+}
+
+/* .label{
+	font-size: 25px;
+	font-weight:350;
+} */
+
+select{
+	padding: 5px;
+	width: 150px;
+	outline-color: #2d5379a1;
+}
+
 .tweet-info > div > span:first-child {
   font-weight: bold;
   margin-right: 5px;
