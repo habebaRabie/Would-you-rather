@@ -1,10 +1,25 @@
 import {SET_AUTHED_USER} from '../actions/authedUser'
 
-export default function authedUser(state= null, action){
+const InitialValues = {
+    isLoggedIn: false,
+    user: {
+        id: '',
+        name: '',
+        avatarURL: '',
+        answers: {},
+        questions: []
+    }
+}
+
+export default function authedUser(state= InitialValues, action){
     switch(action.type){
         case SET_AUTHED_USER:
-            return action.id
+            return{
+                ...state,
+                ...action,
+            }
         default:
             return state
     }
 }
+

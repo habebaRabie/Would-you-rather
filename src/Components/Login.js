@@ -9,17 +9,16 @@ class Login extends React.Component{
     render(){
 
         const users = this.props.Users
+        const authedUser = this.props.authedUser
 
-        console.log(this.props.authedUser)
-
-        const handelFilter=(e)=>{
-            const {dispatch} = this.props
-            dispatch(setAuthedUser(e.target.value))
+        const chooseUser=(e)=>{
+            const {dispatch} = this.props            
+            const user = users.filter((user)=> user.id === e.target.value ) 
+            dispatch(setAuthedUser(user[0]))
+            console.log(authedUser)
         }
+        
 
-        // if(this.props.authedUser !== ''){
-        //     return <Redirect to='/'/>
-        // }
 
         return(
             <div>
@@ -27,10 +26,12 @@ class Login extends React.Component{
                 <p>Please select a user to login as</p>
                 <div className="label">
                     <label>Users: </label>
-                    <select name="users" onChange={handelFilter}>
-                        <option value="sarahedo">{users[0].id}</option>
-                        <option value="tylermcginnis">{users[1].id}</option>
-                        <option value="johndoe">{users[2].id}</option>
+                    <select name="users" onChange={chooseUser}>
+                        {
+                            users.map((user)=>
+                                <option key={user.id} value={user.id}>{user.name}</option>
+                            )
+                        }
                     </select>
                 </div>
             </div>

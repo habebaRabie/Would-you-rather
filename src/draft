@@ -1,0 +1,11 @@
+-Guest
+    /login
+
+-User
+    /
+    /Question/:id                   //press view Question in the answered Question
+                                    //or submit his answer in the unanswered Question
+    /New Question
+    /leaderBoard
+    /logout                                 //become Guest again
+                                                /login

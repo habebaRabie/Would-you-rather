@@ -1,17 +1,15 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
+import {NavLink, Redirect} from 'react-router-dom'
 import { connect } from 'react-redux'
 
 class Nav extends React.Component{
     render(){
 
-        const user = this.props.authedUser
+        const user = this.props.authedUser.user
         const users = this.props.Users
-        const {logOut} = this.props
-        console.log('ijuhjhbh', users)
+        // console.log('USER :  ', user.isLoggedIn)
+        console.log('USERS :  ',users)
 
-        // const check = user !== '' ? true : false
-       
         return(
             <nav className='nav'>
                 <ul>
@@ -30,9 +28,19 @@ class Nav extends React.Component{
                             LeaderBoard
                         </NavLink>
                     </li>
-                    <li id="tab-user">
-                        {/* Hello {logOut ? "Login" : users.name} */}
-                        {/* <img alt="avatar" src={logOut ? null : users.avatarURL} /> */}
+                    <li>
+                        <NavLink to='/login' activeClassName='active'>
+                            {
+                                user.isLoggedIn === false ?
+                                <p>Login</p>
+                                :  <div>
+                                        Hello {user.name}
+                                        <img alt="avatar" src={user.avatarURL} className='avatarNav'/>
+                                        <Redirect to='/' />
+                                    </div>
+                            }      
+                        </NavLink>
+                        
                     </li>
                     
                 </ul>
@@ -40,34 +48,15 @@ class Nav extends React.Component{
             </nav>
         )
     }
-    
 }
-
-{/* <NavLink to='/login' activeClassName='active'>
-    Login
-    <div>
-        { === true?
-        <div>
-            <p>{user.name}</p>
-            <img src={users.avatarURL} alt={`Avatar of${users.name}`} className='avatarNav'/>
-        </div>
-        : null
-        }
-    </div>
-</NavLink> */}
 
 function mapStateToProps ({ authedUser, users, questions}) {
 
-    let logOut = false;
-    if (authedUser === "LoggedOut") {
-        logOut = true;
-    }
 
     return {
         authedUser: authedUser,
-        Users:Object.values(users).find((u)=> u.id === authedUser),
+        Users:Object.values(users),
         Questions: questions,
-        logOut
     }
 }
   

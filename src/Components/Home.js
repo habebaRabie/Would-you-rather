@@ -1,21 +1,30 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router'
 import QuestionsList from './QuestionsIist'
 
 class Home extends React.Component{
     render(){
-        console.log(this.props)
+        console.log(this.props.authedUser)
+
+        const user = this.props.authedUser
+        if(user.isLoggedIn === false){
+            <Redirect to='/login' /> 
+        }
 
         return (
             <div>
             <h3 className='center'>The questions</h3>
-            <ul className='dashboard-list'>
+            {/* <ul className='dashboard-list'>
                 {this.props.QuestionIds.map((id, author) => (
                 <li key={id}>
-                    <QuestionsList id={id} Questions= {this.props.Questions[id]} Users={this.props.Users}/>
+                    <QuestionsList id={id} Questions= {this.props.Questions} Users={this.props.Users}/>
                 </li>
                 ))}
-            </ul>
+            </ul> */}
+            <div>
+                <QuestionsList Questions= {this.props.Questions} Users={this.props.Users}/>
+            </div>
             </div>
         )
     }
