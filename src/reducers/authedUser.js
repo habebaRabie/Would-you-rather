@@ -1,4 +1,4 @@
-import {SET_AUTHED_USER} from '../actions/authedUser'
+import {LOGOUT, SET_AUTHED_USER} from '../actions/authedUser'
 
 const InitialValues = {
     isLoggedIn: false,
@@ -18,6 +18,13 @@ export default function authedUser(state= InitialValues, action){
                 ...state,
                 ...action,
             }
+        case LOGOUT: 
+            return {
+                ...InitialValues,
+                user: {
+                    ...InitialValues.user
+                }
+        }
         default:
             return state
     }

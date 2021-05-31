@@ -1,4 +1,4 @@
-import {RECEIVE_QUESTIONS,ADD_QUESTIONS} from '../actions/questions'
+import {RECEIVE_QUESTIONS, ADD_QUESTIONS, AddAnswer_Question} from '../actions/questions'
 
 export default function questions(state={}, action){
     // console.log(action)
@@ -10,10 +10,19 @@ export default function questions(state={}, action){
             }
 
         case ADD_QUESTIONS:
+            
             return{
                 ...state,
                 [action.question.id]: action.question,
             }
+
+        case AddAnswer_Question:
+            const {authedUser , QID, answer} = action;
+            let newState = {...state};
+            newState[QID][answer].votes.push(authedUser.user.id)
+            //newState[authedUser.user.id].answers[QID] = 
+            return newState;
+
         default:
             return state
     }

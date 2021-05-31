@@ -15,13 +15,6 @@ class Home extends React.Component{
         return (
             <div>
             <h3 className='center'>The questions</h3>
-            {/* <ul className='dashboard-list'>
-                {this.props.QuestionIds.map((id, author) => (
-                <li key={id}>
-                    <QuestionsList id={id} Questions= {this.props.Questions} Users={this.props.Users}/>
-                </li>
-                ))}
-            </ul> */}
             <div>
                 <QuestionsList Questions= {this.props.Questions} Users={this.props.Users}/>
             </div>

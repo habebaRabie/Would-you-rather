@@ -6,8 +6,8 @@ body {
 }
 
 a {
-  text-decoration: none;
-  color: #252525;
+  text-decoration: none !important;
+  color: #252525 !important;
 }
 
 .container {
@@ -81,18 +81,15 @@ li {
   float: right;
 }
 
-.tweet {
-  width: 100%;
-  max-width: 590px;
+.poll {
+  
   padding: 10px;
-  display: flex;
-  margin: 0 auto;
   border: 1px solid #dad7d7;
   border-radius: 3px;
   cursor: pointer;
 }
 
-.tweet-info {
+.poll-info {
   margin: 10px;
   display: flex;
   flex-direction: column;
@@ -100,7 +97,6 @@ li {
 
 .name{
   font-size: 30px;
-  float: right;
   padding-top: 15px;
   padding-left: 30px;
   color: #585656;
@@ -125,38 +121,38 @@ li {
 
 select{
 	padding: 5px;
-	width: 150px;
+	width: 500px;
 	outline-color: #2d5379a1;
 }
 
-.tweet-info > div > span:first-child {
+.poll-info > div > span:first-child {
   font-weight: bold;
   margin-right: 5px;
 }
-.tweet-info > div > span:nth-child(2) {
+.poll-info > div > span:nth-child(2) {
   color: #969696;
   font-size: 16px;
 }
-.tweet-info > div > div {
+.poll-info > div > div {
   color: #969696;
   font-size: 15px;
 }
-.tweet-info > div > p {
+.poll-info > div > p {
   font-size: 18px;
   margin: 10px 0;
 }
-.tweet-icons {
+.poll-icons {
   display: flex;
   align-items: center;
 }
-.tweet-icons > span {
+.poll-icons > span {
   color: #969696;
   margin: 0 15px 0 5px;
   font-size: 18px !important;
 }
 
 
-.new-tweet {
+.new-poll {
   width: 100%;
   max-width: 590px;
   margin: 0 auto;
@@ -172,9 +168,33 @@ select{
   height: 100px;
 }
 
-.tweet-length {
+.poll-length {
   text-align: right;
   margin-top: 10px;
   font-size: 20px;
   color: #C3392A;
+}
+
+.inputField{
+  width: 100%;
+  padding: 15px 10px;
+  font-size: 1.25em;
+  border: solid black 1px;
+  border-radius: 30px;
+  outline: none;
+}
+
+.title{
+  font-size: 20px;
+}
+
+.content{
+  margin-left: 40px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.choice{
+  font-size: 25px;
+  margin-top: 30px;
 }

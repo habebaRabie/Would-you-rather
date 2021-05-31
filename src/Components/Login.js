@@ -1,9 +1,6 @@
 import React from 'react'
-// import Home from './Home'
-// import {receiveUsers} from '../actions/users'
 import {setAuthedUser} from '../actions/authedUser'
 import { connect } from 'react-redux'
-// import {Redirect} from 'react-router-dom'
 
 class Login extends React.Component{
     render(){
@@ -27,6 +24,7 @@ class Login extends React.Component{
                 <div className="label">
                     <label>Users: </label>
                     <select name="users" onChange={chooseUser}>
+                        <option value={"none"}></option>
                         {
                             users.map((user)=>
                                 <option key={user.id} value={user.id}>{user.name}</option>
