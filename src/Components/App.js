@@ -31,14 +31,14 @@ class App extends Component {
                     <Nav />
                     <Switch>
                       <Route path="/" exact component={Home} />
-                      <Route path="/new" component={NewQuestion} />
+                      <Route path="/add" component={NewQuestion} />
                       <Route path="/LeaderBoard" component={LeaderBoard} />
-                      <Route path="/question/:id" component={QuestionPage} />
-                      
+                      <Route path="/questions/:id" component={QuestionPage} />
+                      <Route path="/notFound" component={PageNotFound} />
                     </Switch>
                   </div>
                 )}
-                <Route path="/notFound" component={PageNotFound} />
+                
               </div>
             )}
           </div>

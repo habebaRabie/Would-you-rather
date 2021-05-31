@@ -18,9 +18,7 @@ class Nav extends React.Component{
         const user = this.props.authedUser.user
         const isLoggedIn = this.props.authedUser.isLoggedIn
         const users = this.props.Users
-        // console.log('USER :  ', user.isLoggedIn)
-        //console.log('USERS :  ',users)
-
+        
         return(
             <nav className='nav'>
                 <ul>
@@ -30,7 +28,7 @@ class Nav extends React.Component{
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/new' activeClassName='active'>
+                        <NavLink to='/add' activeClassName='active'>
                             New Question
                         </NavLink>
                     </li>

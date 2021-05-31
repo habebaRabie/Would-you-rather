@@ -7,7 +7,8 @@ class NewQuestion extends React.Component{
 
     state= {
         firstQuestion: "",
-        secondQuestion: ""
+        secondQuestion: "",
+        added: false
     }
 
     AddingChoice =(e)=>{
@@ -21,24 +22,29 @@ class NewQuestion extends React.Component{
         e.preventDefault();
         const { dispatch } = this.props;
         dispatch(handleAddQuestion(this.state.firstQuestion, this.state.secondQuestion));
+        this.setState({
+            added: true
+        })
     }
 
     render(){
         return(
-            <form onSubmit={this.AddingQuestion}>
-                <h2>Would You Rather</h2>
-                <p>Option One</p>
-                <input className="inputField" type= "text" placeholder="Enter the first choice" id="firstQuestion" onChange={this.AddingChoice}/>
-                <hr/>
-                <p>Option One</p>
-                <input className="inputField" type= "text" placeholder="Enter the first choice" id="secondQuestion" onChange={this.AddingChoice}/>
-                <button className="btn">Add Question</button>
-                
-            </form>
+            this.state.added ? (
+                <Redirect to='/' />
+            ):(
+                <form onSubmit={this.AddingQuestion}>
+                    <h2>Would You Rather</h2>
+                    <p>Option One</p>
+                    <input className="inputField" type= "text" placeholder="Enter the first choice" id="firstQuestion" onChange={this.AddingChoice}/>
+                    <hr/>
+                    <p>Option One</p>
+                    <input className="inputField" type= "text" placeholder="Enter the first choice" id="secondQuestion" onChange={this.AddingChoice}/>
+                    <button className="btn">Add Question</button>
+                </form>
+            )
         )
     }
 }
-
 
 function mapStateToProps ({ questions, authedUser }) {
     return {

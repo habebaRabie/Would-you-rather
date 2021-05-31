@@ -38,19 +38,36 @@ class QuestionPage extends React.Component{
         const optionTwo = question.optionTwo
         const author = this.props.users
 
-        const totalNumberOfVotes = optionOne.votes.length + optionTwo.votes.length
-        console.log(QuestionIsAnswered) 
-        console.log(this.state.choice)
+        const optionOneNumberOfVotes = optionOne.votes.length
+        const optionTwoNumberOfVotes = optionTwo.votes.length
+        const totalNumberOfVotes = optionOneNumberOfVotes + optionTwoNumberOfVotes
 
+        const optionOnePercentage =   optionOneNumberOfVotes / totalNumberOfVotes*100
+        const optionTwoPercentage =   optionTwoNumberOfVotes / totalNumberOfVotes*100
+
+        
         return(
             <div>
                 {
                     QuestionIsAnswered ? (
-                        <div>
-
+                        <div className='poll'>
+                            <img src={author[question.author].avatarURL} alt={`Avatar of ${author[question.author].name}`} className='avatar' />
+                            <span className='title'>{author[question.author].name} asks Would you rather</span>
+                            <div className={optionOne.votes.includes(user.user.id) ? 'answeredpoll' : 'poll'}>
+                                <p>{optionOne.text}</p>
+                                <div className="progress">
+                                    <div className="progress-bar" role="progressbar" style={{width: `${optionOnePercentage}%` }} aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"> ({optionOneNumberOfVotes} out of {totalNumberOfVotes} votes) {optionOnePercentage}%</div>
+                                </div>
+                            </div>
+                            <div className={optionTwo.votes.includes(user.user.id) ? 'answeredpoll' : 'poll'}>
+                                <p>{optionTwo.text}</p>
+                                <div className="progress">
+                                    <div className="progress-bar" role="progressbar" style={{width: `${optionTwoPercentage}%` }} aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">({optionTwoNumberOfVotes} out of {totalNumberOfVotes} votes) {optionTwoPercentage}%</div>
+                                </div>
+                            </div>
                         </div>
                     ):(
-                        <div>
+                        <div className='poll'>
                             <img src={author[question.author].avatarURL} alt={`Avatar of ${author[question.author].name}`} className='avatar' />
                             <span className='title'>{author[question.author].name} asks Would you rather</span>
                             <div className='choice'>

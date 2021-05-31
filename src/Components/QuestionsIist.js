@@ -16,6 +16,7 @@ class QuestionsList extends React.Component{
 
         const answeredQuestions = this.props.answeredQuestions;
         const unAnsweredQuestion = this.props.unAnsweredQuestions;
+        //console.log(answeredQuestions.length)
         const handleUnAnsweredQuestions = () =>{
             return unAnsweredQuestion.map((question, i)=>{
                 return (
@@ -27,7 +28,7 @@ class QuestionsList extends React.Component{
                             <p >OR</p>
                             <p className='content'>{question.optionTwo.text}</p>
                         </div>
-                        <NavLink to={`/question/${question.id}`} className='btn' >View Question</NavLink>
+                        <NavLink to={`/questions/${question.id}`} className='btn' >View Question</NavLink>
                     </div>
                 )
             })
@@ -43,7 +44,7 @@ class QuestionsList extends React.Component{
                             <p >OR</p>
                             <p className='content'>{question.optionTwo.text}</p>
                         </div>
-                        <NavLink to={`/question/${question.id}`} className='btn' >View Question</NavLink>
+                        <NavLink to={`/questions/${question.id}`} className='btn' >View Question</NavLink>
 
                     </div>
                 )
@@ -55,12 +56,12 @@ class QuestionsList extends React.Component{
                     <button className="btn" onClick={ ()=>{
                         this.setState({showType: 'unAnswered'})
                     }}>
-                        unAnswered Question
+                        unAnswered Questions  {unAnsweredQuestion.length}
                     </button>
                     <button className="btn" onClick={ ()=>{
                         this.setState({showType: 'answered'})
                     }}>
-                        Answered Question
+                        Answered Questions  {answeredQuestions.length}
                     </button>
                 
                     {this.state.showType === 'answered' ? handleAnsweredQuestions() : handleUnAnsweredQuestions()}
