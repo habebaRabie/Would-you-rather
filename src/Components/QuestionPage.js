@@ -32,7 +32,6 @@ class QuestionPage extends React.Component{
 
         const user = this.props.authedUser
         const question = this.props.question
-        const questions = this.props.questions
         const QuestionIsAnswered = this.props.QuestionIsAnswered
         const optionOne = question.optionOne
         const optionTwo = question.optionTwo
@@ -90,9 +89,7 @@ class QuestionPage extends React.Component{
 }
 
 function mapStateToProps ({ authedUser, users, questions}, {match }) {
-    //console.log(match.params.id)
     const question = questions[match.params.id];
-    // console.log(question)
   
     const id = match.params.id
     let QuestionIsAnswered = false;
@@ -109,7 +106,6 @@ function mapStateToProps ({ authedUser, users, questions}, {match }) {
 
      return {
         authedUser,
-        questions,
         id,
         question,
         QuestionIsAnswered,

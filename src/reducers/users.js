@@ -10,15 +10,9 @@ export default function users (state={}, action){
             }
 
         case AssignQuestion_ToUser:
-            console.log(action)
             const {question} = action;
-            //console.log(users[question.author].questions.concat([question.id]))
-            // console.log(question, users)
-            
-            // let newState = {...state};
             let questionId = question.id;
             let userId = question.author;
-            // newState[userId].questions.push(questionId);
             return {
                 ...state,
                 [userId]: {

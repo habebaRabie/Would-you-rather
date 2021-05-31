@@ -6,17 +6,12 @@ class Login extends React.Component{
     render(){
 
         const users = this.props.Users
-        const authedUser = this.props.authedUser
-
         const chooseUser=(e)=>{
             const {dispatch} = this.props            
             const user = users.filter((user)=> user.id === e.target.value ) 
             dispatch(setAuthedUser(user[0]))
-            console.log(authedUser)
         }
         
-
-
         return(
             <div>
                 <h3 className='center'>Login</h3>

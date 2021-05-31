@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {NavLink, withRouter} from 'react-router-dom'
-import {_saveQuestion} from '../utils/_DATA'
 
 class QuestionsList extends React.Component{
     
@@ -10,13 +9,10 @@ class QuestionsList extends React.Component{
     }
 
     render(){
-        const questions = this.props.questions
-        const user = this.props.authedUser
         const users = this.props.users
 
         const answeredQuestions = this.props.answeredQuestions;
         const unAnsweredQuestion = this.props.unAnsweredQuestions;
-        //console.log(answeredQuestions.length)
         const handleUnAnsweredQuestions = () =>{
             return unAnsweredQuestion.map((question, i)=>{
                 return (

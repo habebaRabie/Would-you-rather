@@ -1,7 +1,6 @@
 import {RECEIVE_QUESTIONS, ADD_QUESTIONS, AddAnswer_Question} from '../actions/questions'
 
 export default function questions(state={}, action){
-    // console.log(action)
     switch (action.type){
         case RECEIVE_QUESTIONS:
             return{
@@ -20,7 +19,6 @@ export default function questions(state={}, action){
             const {authedUser , QID, answer} = action;
             let newState = {...state};
             newState[QID][answer].votes.push(authedUser.user.id)
-            //newState[authedUser.user.id].answers[QID] = 
             return newState;
 
         default:

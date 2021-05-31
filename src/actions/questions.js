@@ -21,8 +21,6 @@ function addQuestion(question){
 }
 
 export function assignToUser(question, users){
-    console.log('question: ', question);
-    console.log('users', users)
         return{
             type: AssignQuestion_ToUser,
             question,

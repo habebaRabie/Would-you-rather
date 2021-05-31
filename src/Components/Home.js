@@ -5,7 +5,6 @@ import QuestionsList from './QuestionsIist'
 
 class Home extends React.Component{
     render(){
-        console.log(this.props.authedUser)
 
         const user = this.props.authedUser
         if(user.isLoggedIn === false){
