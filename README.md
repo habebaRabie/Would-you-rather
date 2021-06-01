@@ -2,6 +2,13 @@
 
 This project is would you rather game, which allow the user to login as one of the three users found in the system. It show the user several questions with two options and he can vote for only one option. User has also the ability to add new question to the questions. In addition to leaderboard page to show the user who has the highest score(who answer and create the biggest number of questions)
 
+## To start running the project
+
+To get started developing right away:
+
+* you can install all project dependencies with `npm install`
+* To start the development server use `npm start`
+
 ## Data
 
 There are two types of objects stored in our database:
