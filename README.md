@@ -1,10 +1,6 @@
 # Would You Rather Project
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
-
-The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
-
-Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
+This project is would you rather game, which allow the user to login as one of the three users found in the system. It show the user several questions with two options and he can vote for only one option. User has also the ability to add new question to the questions. In addition to leaderboard page to show the user who has the highest score(who answer and create the biggest number of questions)
 
 ## Data
 
@@ -12,6 +8,7 @@ There are two types of objects stored in our database:
 
 * Users
 * Questions
+* Authed User
 
 ### Users
 
@@ -20,8 +17,8 @@ Users include:
 | Attribute    | Type             | Description           |
 |-----------------|------------------|-------------------         |
 | id                 | String           | The user’s unique identifier |
-| name          | String           | The user’s first name  and last name     |
-| avatarURL  | String           | The path to the image file |
+| name          | String           | The user’s name (first and last name)     |
+| avatarURL  | String           | The link of the image of the user |
 | questions | Array | A list of ids of the polling questions this user created|
 | answers      | Object         |  The object's keys are the ids of each question this user answered. The value of each key is the answer the user selected. It can be either `'optionOne'` or `'optionTwo'` since each question has two options.
 

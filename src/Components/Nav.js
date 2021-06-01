@@ -6,32 +6,36 @@ import {logoutAction} from '../actions/authedUser'
 
 class Nav extends React.Component{
 
+
     render(){
-        
+
         const handleLogOut =() =>{
-            const {dispatch} = this.props            
+            const {dispatch} = this.props
             dispatch(logoutAction());
         }
 
         const user = this.props.authedUser.user
         const isLoggedIn = this.props.authedUser.isLoggedIn
-        
+
         return(
             <nav className='nav'>
                 <ul>
                     <li>
                         <NavLink to='/' exact activeClassName='active'>
                             Home
+                            
                         </NavLink>
                     </li>
                     <li>
                         <NavLink to='/add' activeClassName='active'>
                             New Question
+                            
                         </NavLink>
                     </li>
                     <li>
                         <NavLink to='/leaderboard' activeClassName='active'>
                             LeaderBoard
+                            
                         </NavLink>
                     </li>
                     <li>
@@ -43,7 +47,6 @@ class Nav extends React.Component{
                                         Hello {user.name}
                                         <img alt="avatar" src={user.avatarURL} className='avatarNav'/>
                                         <button onClick={handleLogOut}>Log out</button>
-                                        <Redirect to='/' />
                                     </div>
                                     //else remove the user's info from the nav
                             } 

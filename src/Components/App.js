@@ -13,6 +13,7 @@ import PageNotFound from './PageNotFound'
 
 
 class App extends Component {
+
   componentDidMount() {
     this.props.dispatch(handleInitialData())
   }
@@ -25,7 +26,13 @@ class App extends Component {
             {this.props.loading ? null : (
               <div>
                 {!this.props.authedUser.isLoggedIn ? (
-                  <Login />
+                  <Switch>
+
+                  {/* <Login /> */}
+                    <Route  render={({location}) => {
+                      return <Login path = {location.pathname} />
+                    }} />
+                  </Switch>
                 ) : (
                   <div>
                     <Nav />
@@ -35,6 +42,7 @@ class App extends Component {
                       <Route path="/LeaderBoard" component={LeaderBoard} />
                       <Route path="/questions/:id" component={QuestionPage} />
                       <Route path="/notFound" component={PageNotFound} />
+                      <Route component={PageNotFound} />
                     </Switch>
                   </div>
                 )}

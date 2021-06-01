@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import { Redirect } from 'react-router'
 import {addAnswerToQues} from '../actions/questions'
 
+
 class QuestionPage extends React.Component{
 
     state= {
@@ -83,7 +84,6 @@ class QuestionPage extends React.Component{
                     )
                 }
             </div>
-            
         )
     }
 }
@@ -109,7 +109,7 @@ function mapStateToProps ({ authedUser, users, questions}, {match }) {
         id,
         question,
         QuestionIsAnswered,
-        users
+        users,
     }
 }
       

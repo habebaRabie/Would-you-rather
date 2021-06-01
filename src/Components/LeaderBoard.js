@@ -1,9 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { clearRedirect} from '../actions/redirect'
 
 
 class LeaderBoard extends React.Component{
     render(){
+
+        if(this.props.redirect.to !== "/"){
+            const {dispatch} = this.props            
+            dispatch(clearRedirect());
+        }
+        
+
         const users = this.props.Users;
         let sortedArray = [...users].sort((a, b) => {
             let userAScore = a.questions.length + Object.keys(a.answers).length;
@@ -31,10 +39,11 @@ class LeaderBoard extends React.Component{
     }
 }
 
-function mapStateToProps ({ users, questions }) {
+function mapStateToProps ({ users, questions , redirect}) {
     return {
         Users:Object.values(users), 
-        questions       
+        questions,
+        redirect
     }
 }
 

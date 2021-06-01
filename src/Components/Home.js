@@ -23,13 +23,14 @@ class Home extends React.Component{
 }
 
 
-function mapStateToProps ({ questions, users, authedUser }) {
+function mapStateToProps ({ questions, users, authedUser  }) {
     return {
         authedUser: authedUser,
         Questions: questions,
         QuestionIds: Object.keys(questions)
         .sort((a,b) => questions[b].timestamp - questions[a].timestamp),
-        Users:Object.values(users)
+        Users:Object.values(users),
+        
     }
 }
   
